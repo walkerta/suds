@@ -5,17 +5,20 @@ contt data = require ('./data.js');
 const app = express();
 
 app.engine('mustache', mustacheExpress());
-app.set('data', './data')
-app.set('data engine', 'mustache')
+app.set('data', './data');
+app.set('data engine', 'mustache');
 
-app.use('/static', express.static('public'))
-//Listening on root
-app.get('/data/', function (req, res) {
-  res.render("item1:",
+app.use('/static', express.static('public'));
+app.get('/', function (req, res) {
+  res.render('user',data);
+});
 
-  }
-})
+app.get('/user/:id', function (req, res, next) {
+  let id = req.params.id;
+  let user= data.users (id);
+  next()
+});
 
 app.listen(3000, function () {
-  console.log('Successfully started express application!');
-})
+  console.log('listen');
+});

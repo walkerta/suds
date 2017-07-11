@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="/public/main.css">
+</head>
+
+<body class='user'>
+  <div class="profile">
+    <img src="{{avatar}}" alt="picture">
+  </div>
+  <div class="information">
+    <h2>{{name}}</h2>
+    {{#address}}
+      {{#state}}
+      <p>{{state}}, {{country}}</p>
+      {{/state}}
+      {{^state}}
+      <p>{{country}}</p>
+      {{/state}}
+      {{/address}}
+      {{#job}}
+      <p>{{job}}, {{company}}</p>
+      {{/job}}
+      {{^job}}
+        <p>Available for hire</p>
+      {{/job}}
+      <p>{{email}}</p>
+      <p>{{phone}}</p>
+    </div>
+    <div class="additional-information">
+      {{#university}}
+      <div class="education">
+        <h4>Education</h4>
+        <p>{{university}}</p>
+      </div>
+      {{/university}}
+      <div class="skills">
+        <h4>Skills</h4>
+        {{#skills}}
+        <p>{{.}}</p>
+        {{/skills}}
+      </div>
+    </div>
+  </body>
+</html>
